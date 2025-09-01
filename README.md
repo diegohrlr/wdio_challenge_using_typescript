@@ -40,3 +40,12 @@ WINDOWS POWERSHELL: $env:ENV="prd"; $env:DEVICE="desktop"; npx wdio run ./wdio.c
     - Multi envrionment support
     - Allure Report
     - Assertion, Waits, API Assertions and random utilites
+
+### Found bugs:
+ISSUE 1: test/specs/api/create_item_security.spec.ts --> POST endpoint (create item) is exposed. We should not expose this endpoint and if we don't send a Bearer we should retrieve a 401 unauthorized.
+Adding a token the spec should pass. NOTICE: Edit and Delete are using this exposed endpoint so we should update the request setting the Bearer once fixed.
+
+ISSUE 2: test/specs/ui/navigation/header_links.spec.ts --> Logo and Homepage tab are not using href='/' so the redirection is not working. If we already have data in the details form (as item edit) this will not be cleared
+
+ISSUE 3: test/specs/ui/happy_paths/02_edit_item.spec.ts --> Edit is not uploading and replacing a new picture. Once fixed should pass.
+
