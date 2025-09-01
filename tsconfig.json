@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node", "@wdio/globals/types", "mocha"],
+    "outDir": "dist",
+    "skipLibCheck": true,
+  },
+  "include": ["./test/**/*.ts", "./*.ts", "./src/**/*.ts"]
+}
